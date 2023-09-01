@@ -15,6 +15,13 @@ public:
         if(address!=other.address){
             return address<other.address;
         }
+        if(district!=other.district){
+            return district<other.district;
+        }
+        if(province!=other.province){
+            return province<other.province;
+        }
+        
         return name<other.name;
 
     }
