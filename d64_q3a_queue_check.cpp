@@ -1,12 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-    std::ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+    //std::ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+    //3 5 4 0 3
     int n,mFront,mSize,mCap,corr,last,ans;
     cin>>n;
     while(n--){
         cin>>mFront>>mSize>>mCap>>last>>corr;
-        if(last!=(mFront+mSize)%mCap){
+        if(mSize>mCap || mFront>=mCap || last!=(mFront+mSize)%mCap ){
             cout<<"WRONG";
             if(corr==1){
                 mFront=(last-mSize);
