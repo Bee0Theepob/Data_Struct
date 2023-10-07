@@ -1,38 +1,26 @@
-#include <iostream> 
-#include <map> 
-#include <queue>
-using namespace std; 
-int main() {            
-    int n,k,minn;
-    string name;
-    map<string,int> p;
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    std::ios_base::sync_with_stdio(false);cin.tie(0);
+    int n,k;
+    string s;
+    map<string,int> m;
+    priority_queue<int> pq;
     cin>>n>>k;
     while(n--){
-        cin>>name;
-        p[name]++;
+        cin>>s;
+        m[s]++;
     }
-    if(p.size()<k){
-        minn=(p.begin())->second;
-        auto it=p.begin();
-        it++;
-        for(it;it!=p.end();it++){
-            if(it->second<minn){
-                minn=it->second;
-            }
+    for(auto x:m){
+        pq.push(x.second);
+    }
+    while(k--){
+        n=pq.top();
+        pq.pop();
+        if(pq.empty()){
+            break;
         }
     }
-    else{
-        priority_queue<int> pq;
-        for(auto it=p.begin();it!=p.end();it++){
-            pq.push(it->second);
-        }
-        while(k--){
-            minn=pq.top();
-            pq.pop();
-        }
-
-    }
-    cout<<minn;
-    
+    cout<<n;
     return 0;
-    }
+}
