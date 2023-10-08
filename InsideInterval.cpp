@@ -18,12 +18,7 @@ int main(){
         if(it->first>a){
             it--;
         }
-        if(a>=it->first && a<=it->second){
-            cout<<1<<" ";
-        }
-        else{
-            cout<<0<<" ";
-        }
+        cout<<(a>=it->first && a<=it->second)<<' ';
     }
     return 0;
 }

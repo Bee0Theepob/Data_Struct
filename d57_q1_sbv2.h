@@ -29,16 +29,19 @@ void CP::stack<T>::pop() {
 template <typename T>
 void CP::stack<T>::deep_push(const T& element, int depth) {
   //write your code here
-  v.push_back(element);
-  int i=v.size()-1;
-  for(i;i>=depth;i--){
-    if(i==0){
+  stack<T> tmp;
+  while(depth--){
+    if(empty()){
       break;
     }
-    v[i]=v[i-1];
+    tmp.push(top());
+    pop();
   }
-  v[i]=element;
-  
+  push(element);
+  while(!tmp.empty()){
+    push(tmp.top());
+    tmp.pop();
+  }
 }
 
 template <typename T>
@@ -61,3 +64,4 @@ void CP::stack<T>::pop_until(const T& e) {
 }
 
 #endif
+
