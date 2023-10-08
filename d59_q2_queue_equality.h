@@ -7,13 +7,10 @@ bool CP::queue<T>::operator==(const CP::queue<T> &other) const {
   if(mSize!=other.mSize){
     return false;
   } 
-  int idxa=mFront,idxb=other.mFront;
   for(int i=0;i<mSize;i++){
-    if(mData[idxa]!=other.mData[idxb]){
+    if(mData[(mFront+i)%mCap]!=other.mData[(other.mFront+i)%other.mCap]){
       return false;
     }
-    idxa++;
-    idxb++;
   }
   return true;
 

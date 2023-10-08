@@ -7,20 +7,20 @@
 
 template <typename T>
 CP::stack<T>::stack(typename std::set<T>::iterator first,typename std::set<T>::iterator last) {
-    auto it =first;
-    int cap=0;
-    while(it!=last){
-      cap++;
-      it++;
+    int cap = 1;
+      mData = new T[cap]();
+      mCap = cap;
+      mSize = 0;
+    if(last==first){
+    return;}
+    last--;
+    while(first!=last){
+      push(*last);
+      last--;
     }
-    this->mData = new T[cap]();
-    this->mCap = cap;
-    this->mSize = cap;
-    it--;;
-    for (int i = 0;i < cap;i++) {
-      mData[i] = *it;
-      it--;
-    }
+    push(*first);
 }
 
 #endif
+
+
