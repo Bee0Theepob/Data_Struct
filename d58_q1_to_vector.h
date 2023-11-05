@@ -5,16 +5,9 @@
 template <typename T>
 std::vector<T> CP::queue<T>::to_vector(int k) const {
   std::vector<T> res;
-  CP::queue<T> tmp=*this;
-  //write your code only here
-  while(k--){
-    if(tmp.empty()){
-      break;
-    }
-    res.push_back(tmp.front());
-    tmp.pop();
+  for(int i=0;i<mSize;i++){
+    res.push_back(mData[(mFront+i)%mCap]);
   }
-  //
   return res;
 }
 
