@@ -10,6 +10,11 @@ template <typename T>
 void CP::vector_some_move<T>::insert(int index, std::vector<T> &value) {
   // Your code here
   //debug();
+
+
+  //เลิกๆๆๆๆๆ ข้าม
+
+  
   int i = std::upper_bound(aux.begin(), aux.end(), index) - aux.begin();
   if (i > 0){
     index -= aux[i - 1];
@@ -19,6 +24,7 @@ void CP::vector_some_move<T>::insert(int index, std::vector<T> &value) {
   if(index!=0){
   push_back({});}
   push_back({});
+  debug();
   auto it=mData.end();it--;
   int l=2;
   if(index==0){
@@ -27,9 +33,13 @@ void CP::vector_some_move<T>::insert(int index, std::vector<T> &value) {
   for(it;it-l!=mData.begin()+i;it--){
     *it=*(it-l);
   }
+  debug();
   *it=tmp;
   it--;
   *it=value;
+  debug();
+  
+  
   aux.clear();
   int c=0;
   for(int i=0;i<mData.size();i++){
@@ -37,7 +47,7 @@ void CP::vector_some_move<T>::insert(int index, std::vector<T> &value) {
     aux.push_back(c);
   }
   mSize+=value.size();
-  debug();
+  return;
 }
 
 #endif
