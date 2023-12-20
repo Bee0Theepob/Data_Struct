@@ -6,6 +6,8 @@ template <typename KeyT,
           typename CompareT >
 CP::map_bst<KeyT,MappedT,CompareT> CP::map_bst<KeyT,MappedT,CompareT>::split(KeyT val) {
   //your code here
+
+  //เลิกๆๆๆๆๆ ข้าม
   CP::map_bst<KeyT,MappedT,CompareT> result;
   bool have=false;
   if(find(val)==end()){
